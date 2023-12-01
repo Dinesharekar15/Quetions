@@ -1,13 +1,20 @@
-var button=document.querySelectorAll('.btn');
 var article=document.querySelectorAll('.artical');
 
 
-button.forEach(function(button,index) {
-    button.addEventListener("click",function(){
-        
-        var articleClassList = article[index].classList;
-        articleClassList.toggle('show-text');
-        console.log(articleClassList);
-        
+article.forEach(function(outer) {
+
+    // console.log(din)
+    const btn=outer.querySelector(".btn")
+    btn.addEventListener("click",function(){
+        article.forEach(function(inner){
+            if(inner !==outer){
+                inner.classList.remove("show-text")
+            }
+
         })
+   
+        outer.classList.toggle("show-text")
+    })
+
+    
 })
